@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For You ❤️</title>
+
+<style>
+
+/* =========================
+   BASIC
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family:
+        "Noto Sans Myanmar",
+        "Myanmar Text",
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #ff709f 0%,
+            #8e214f 25%,
+            #3b1029 60%,
+            #160813 100%
+        );
+
+    color: white;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.hearts {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+    overflow: hidden;
+
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+
+    bottom: -50px;
+
+    color: rgba(255, 180, 210, .45);
+
+    animation: floatHeart linear infinite;
+}
+
+.heart:nth-child(1) {
+    left: 10%;
+    font-size: 18px;
+    animation-duration: 9s;
+}
+
+.heart:nth-child(2) {
+    left: 25%;
+    font-size: 25px;
+    animation-duration: 12s;
+    animation-delay: 2s;
+}
+
+.heart:nth-child(3) {
+    left: 45%;
+    font-size: 16px;
+    animation-duration: 10s;
+    animation-delay: 4s;
+}
+
+.heart:nth-child(4) {
+    left: 68%;
+    font-size: 23px;
+    animation-duration: 13s;
+}
+
+.heart:nth-child(5) {
+    left: 88%;
+    font-size: 17px;
+    animation-duration: 11s;
+    animation-delay: 3s;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            rotate(40deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.main {
+    position: relative;
+
+    z-index: 2;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 15px;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+    width: 100%;
+    max-width: 550px;
+
+    text-align: center;
+
+    animation: pageIn .8s ease;
+}
+
+@keyframes pageIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   HEART
+========================= */
+
+.big-heart {
+    font-size: 55px;
+
+    margin-bottom: 15px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.title {
+    font-size: 30px;
+
+    line-height: 1.6;
+
+    color: #fff0f6;
+
+    text-shadow:
+        0 0 10px rgba(255, 150, 190, .7),
+        0 0 25px rgba(255, 100, 160, .4);
+
+    margin-bottom: 15px;
+}
+
+
+.description {
+    font-size: 17px;
+
+    line-height: 2;
+
+    color: #ffd8e8;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   START BUTTONS
+========================= */
+
+.start-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+.btn {
+
+    border: none;
+
+    padding: 14px 27px;
+
+    border-radius: 35px;
+
+    font-size: 16px;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.25);
+}
+
+
+.yes-btn {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f91,
+            #ff86b4
+        );
+
+    color: white;
+
+    box-shadow:
+        0 0 20px rgba(255, 80, 150, .4);
+}
+
+
+.no-btn {
+
+    background:
+        rgba(255,255,255,.12);
+
+    border:
+        1px solid rgba(255,200,220,.3);
+
+    color: #ffdce9;
+}
+
+
+.btn:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.03);
+}
+
+
+/* =========================
+   NO MESSAGE
+========================= */
+
+.no-message {
+
+    display: none;
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    color: #ffd9e8;
+
+    line-height: 1.9;
+
+    animation: pageIn .6s ease;
+}
+
+
+/* =========================
+   GIFT PAGE
+========================= */
+
+.gift-page {
+
+    display: none;
+
+    width: 100%;
+
+    animation: pageIn .7s ease;
+}
+
+
+.gift-title {
+
+    font-size: 25px;
+
+    color: #ffe1ed;
+
+    margin-bottom: 10px;
+}
+
+
+.gift-subtitle {
+
+    font-size: 14px;
+
+    color: #f9b8d1;
+
+    line-height: 1.8;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   COUNTER
+========================= */
+
+.counter {
+
+    display: inline-block;
+
+    padding: 9px 20px;
+
+    margin-bottom: 30px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,.09);
+
+    border:
+        1px solid rgba(255,180,210,.3);
+
+    color: #ffd7e6;
+
+    font-size: 14px;
+}
+
+
+.counter span {
+
+    color: #ff8ab8;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   BOX LIST
+========================= */
+
+.box-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 38px;
+
+    width: 100%;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+
+    position: relative;
+
+    width: 200px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+
+.card:hover {
+
+    transform: translateY(-5px);
+}
+
+
+.card.locked {
+
+    opacity: .3;
+
+    cursor: not-allowed;
+
+    filter: grayscale(.5);
+}
+
+
+.number {
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    color: #ffc5db;
+
+    margin-bottom: 9px;
+}
+
+
+/* =========================
+   GIFT BOX
+========================= */
+
+.gift {
+
+    position: relative;
+
+    width: 170px;
+
+    height: 155px;
+
+    margin: auto;
+
+    perspective: 900px;
+}
+
+
+/* BOX BODY */
+
+.box-body {
+
+    position: absolute;
+
+    left: 8px;
+
+    bottom: 0;
+
+    width: 154px;
+
+    height: 105px;
+
+    border-radius: 5px 5px 12px 12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #a9144d,
+            #e34279,
+            #b71754
+        );
+
+    box-shadow:
+
+        inset 0 3px 10px
+        rgba(255,255,255,.18),
+
+        inset 0 -12px 20px
+        rgba(0,0,0,.22),
+
+        0 12px 25px
+        rgba(0,0,0,.35);
+
+    z-index: 2;
+}
+
+
+/* LID */
+
+.lid {
+
+    position: absolute;
+
+    left: 0;
+
+    top: 25px;
+
+    width: 170px;
+
+    height: 34px;
+
+    border-radius: 6px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #bd2059,
+            #f04d85,
+            #c0205c
+        );
+
+    box-shadow:
+        0 7px 14px rgba(0,0,0,.3);
+
+    transform-origin: left bottom;
+
+    transition:
+        transform .8s
+        cubic-bezier(.2,.8,.2,1);
+
+    z-index: 6;
+}
+
+
+/* VERTICAL RIBBON */
+
+.ribbon-v {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 24px;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffd0df,
+            #fff4f8,
+            #f3a6c2
+        );
+
+    z-index: 5;
+}
+
+
+/* HORIZONTAL RIBBON */
+
+.ribbon-h {
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    top: 50%;
+
+    height: 20px;
+
+    transform: translateY(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            #f7aec9,
+            #fff1f6,
+            #f7aec9
+        );
+
+    z-index: 4;
+}
+
+
+/* =========================
+   BOW
+========================= */
+
+.bow {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: -7px;
+
+    width: 65px;
+
+    height: 35px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 10;
+}
+
+
+.bow::before,
+.bow::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 4px;
+
+    width: 32px;
+
+    height: 24px;
+
+    background: #ffd4e3;
+
+    box-shadow:
+        0 0 10px
+        rgba(255,200,225,.5);
+}
+
+
+.bow::before {
+
+    left: 0;
+
+    border-radius:
+        60% 20% 60% 30%;
+
+    transform: rotate(20deg);
+}
+
+
+.bow::after {
+
+    right: 0;
+
+    border-radius:
+        20% 60% 30% 60%;
+
+    transform: rotate(-20deg);
+}
+
+
+.bow-center {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 9px;
+
+    width: 17px;
+
+    height: 17px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background: #fff3f7;
+
+    box-shadow:
+        0 0 12px rgba(255,220,235,.8);
+
+    z-index: 2;
+}
+
+
+/* =========================
+   SECRET MESSAGE
+========================= */
+
+.secret {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50px;
+
+    width: 155px;
+
+    min-height: 45px;
+
+    padding: 10px;
+
+    transform:
+        translateX(-50%)
+        translateY(20px)
+        scale(.75);
+
+    opacity: 0;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff2f7,
+            #ffd6e7
+        );
+
+    color: #a51550;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    line-height: 1.6;
+
+    box-shadow:
+        0 8px 25px
+        rgba(255,80,150,.4);
+
+    transition:
+        opacity .6s .25s,
+        transform .7s .25s;
+
+    z-index: 1;
+}
+
+
+/* =========================
+   OPEN BOX
+========================= */
+
+.gift.open .lid {
+
+    transform:
+        rotate(-70deg)
+        translate(-5px,-18px);
+}
+
+
+.gift.open .secret {
+
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(-10px)
+        scale(1);
+
+    z-index: 8;
+}
+
+
+/* =========================
+   SELECTED
+========================= */
+
+.card.selected .gift {
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(255,80,160,.65)
+        )
+        drop-shadow(
+            0 0 30px
+            rgba(255,80,160,.25)
+        );
+}
+
+
+/* =========================
+   LOCK ICON
+========================= */
+
+.lock {
+
+    position: absolute;
+
+    right: 0;
+
+    top: 30px;
+
+    width: 30px;
+
+    height: 30px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        rgba(0,0,0,.4);
+
+    opacity: 0;
+
+    transition: .3s;
+}
+
+
+.card.locked .lock {
+
+    opacity: 1;
+}
+
+
+/* =========================
+   FINAL MESSAGE
+========================= */
+
+.final-message {
+
+    display: none;
+
+    margin-top: 35px;
+
+    padding: 23px 20px;
+
+    border-radius: 22px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid
+        rgba(255,170,200,.3);
+
+    color: #ffe0ec;
+
+    line-height: 2;
+
+    animation: pageIn .7s ease;
+
+    box-shadow:
+        0 0 30px
+        rgba(255,80,150,.12);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:500px) {
+
+    .title {
+        font-size: 25px;
+    }
+
+    .description {
+        font-size: 15px;
+    }
+
+    .big-heart {
+        font-size: 48px;
+    }
+
+    .box-list {
+        gap: 34px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- FLOATING HEARTS -->
+
+<div class="hearts">
+
+    <div class="heart">♥</div>
+    <div class="heart">♡</div>
+    <div class="heart">♥</div>
+    <div class="heart">♡</div>
+    <div class="heart">♥</div>
+
+</div>
+
+
+
+<div class="main">
+
+<div class="page">
+
+
+<!-- =================================
+     FIRST PAGE
+================================= -->
+
+<div id="welcomePage">
+
+    <div class="big-heart">
+        ❤️
+    </div>
+
+    <div class="title">
+        မင်းအတွက် လက်ဆောင်လေးတွေရှိတယ် 🎁
+    </div>
+
+    <div class="description">
+
+        မင်းကြိုက်တဲ့ 3 ခုကို<br>
+        ရွေးကြည့်နော် ❤️
+
+    </div>
+
+
+    <div class="start-buttons">
+
+        <button
+            class="btn yes-btn"
+            onclick="showGifts()"
+        >
+            ကြည့်မယ် ❤️
+        </button>
+
+
+        <button
+            class="btn no-btn"
+            onclick="dontWatch()"
+        >
+            မကြည့်ဘူး 🙈
+        </button>
+
+    </div>
+
+
+    <div
+        class="no-message"
+        id="noMessage"
+    >
+
+        ဟယ်... မကြည့်ဘူးလား 🥺❤️<br><br>
+
+        ကိုယ်တကူးတက လုပ်ထားတာလေးနော်...<br>
+
+        တစ်ခါလောက်တော့ ကြည့်ပေးပါ 🥹💕
+
+        <br><br>
+
+        <button
+            class="btn yes-btn"
+            onclick="showGifts()"
+        >
+            အင်း ကြည့်မယ် ❤️
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =================================
+     GIFT PAGE
+================================= -->
+
+<div
+    class="gift-page"
+    id="giftPage"
+>
+
+    <div class="gift-title">
+        မင်းအတွက် လက်ဆောင်လေးတွေ 🎁
+    </div>
+
+    <div class="gift-subtitle">
+
+        ကြိုက်တဲ့ ၃ ခုကိုပဲ ရွေးပြီးဖွင့်ကြည့်နော် ❤️<br>
+
+        ဘယ် Box ထဲမှာ ဘာရှိလဲ မသိရဘူး 🤭
+
+    </div>
+
+
+    <div class="counter">
+
+        ရွေးပြီး — 
+        <span id="count">0</span>
+        / 3
+
+    </div>
+
+
+
+    <!-- =================================
+         BOX 1
+    ================================= -->
+
+    <div class="box-list">
+
+
+        <div
+            class="card"
+            data-message="အာဘွား"
+        >
+
+            <div class="number">
+                GIFT 01
+            </div>
+
+
+            <div class="gift">
+
+                <div class="secret">
+                    အာဘွား 💋❤️
+                </div>
+
+                <div class="box-body"></div>
+
+                <div class="ribbon-v"></div>
+
+                <div class="ribbon-h"></div>
+
+                <div class="lid"></div>
+
+                <div class="bow">
+                    <div class="bow-center"></div>
+                </div>
+
+            </div>
+
+
+            <div class="lock">
+                🔒
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================
+             BOX 2
+        ================================= -->
+
+        <div
+            class="card"
+            data-message="သီတင်းကျွတ်မုန့်ဆိုး1သိန်း"
+        >
+
+            <div class="number">
+                GIFT 02
+            </div>
+
+
+            <div class="gift">
+
+                <div class="secret">
+                    သီတင်းကျွတ်မုန့်ဆိုး1သိန်း 💰❤️
+                </div>
+
+                <div class="box-body"></div>
+
+                <div class="ribbon-v"></div>
+
+                <div class="ribbon-h"></div>
+
+                <div class="lid"></div>
+
+                <div class="bow">
+                    <div class="bow-center"></div>
+                </div>
+
+            </div>
+
+
+            <div class="lock">
+                🔒
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================
+             BOX 3
+        ================================= -->
+
+        <div
+            class="card"
+            data-message="အချစ်တွေ"
+        >
+
+            <div class="number">
+                GIFT 03
+            </div>
+
+
+            <div class="gift">
+
+                <div class="secret">
+                    အချစ်တွေ ❤️❤️❤️
+                </div>
+
+                <div class="box-body"></div>
+
+                <div class="ribbon-v"></div>
+
+                <div class="ribbon-h"></div>
+
+                <div class="lid"></div>
+
+                <div class="bow">
+                    <div class="bow-center"></div>
+                </div>
+
+            </div>
+
+
+            <div class="lock">
+                🔒
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================
+             BOX 4
+        ================================= -->
+
+        <div
+            class="card"
+            data-message="အာဘွား"
+        >
+
+            <div class="number">
+                GIFT 04
+            </div>
+
+
+            <div class="gift">
+
+                <div class="secret">
+                    အာဘွား 💋💕
+                </div>
+
+                <div class="box-body"></div>
+
+                <div class="ribbon-v"></div>
+
+                <div class="ribbon-h"></div>
+
+                <div class="lid"></div>
+
+                <div class="bow">
+                    <div class="bow-center"></div>
+                </div>
+
+            </div>
+
+
+            <div class="lock">
+                🔒
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================
+             BOX 5
+        ================================= -->
+
+        <div
+            class="card"
+            data-message="စားချင်သောမုန့်များ"
+        >
+
+            <div class="number">
+                GIFT 05
+            </div>
+
+
+            <div class="gift">
+
+                <div class="secret">
+                    စားချင်သောမုန့်များ 🍰🍓❤️
+                </div>
+
+                <div class="box-body"></div>
+
+                <div class="ribbon-v"></div>
+
+                <div class="ribbon-h"></div>
+
+                <div class="lid"></div>
+
+                <div class="bow">
+                    <div class="bow-center"></div>
+                </div>
+
+            </div>
+
+
+            <div class="lock">
+                🔒
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FINAL MESSAGE -->
+
+    <div
+        class="final-message"
+        id="finalMessage"
+    >
+
+        ❤️ ၃ ခုလုံးရွေးပြီးပြီနော် ❤️
+
+        <br><br>
+
+        မင်းရွေးလိုက်တဲ့ Surprise လေးတွေက<br>
+
+        ကိုယ်မင်းအတွက် တကူးတက သိမ်းထားပေးတာပါ 💕
+
+        <br><br>
+
+        မင်းပျော်ရင်<br>
+
+        ကိုယ်လည်း ပျော်တယ် 🥰
+
+    </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* =================================
+   SHOW GIFT PAGE
+================================= */
+
+function showGifts() {
+
+    document.getElementById("welcomePage").style.display = "none";
+
+    document.getElementById("giftPage").style.display = "block";
+
+}
+
+
+/* =================================
+   DON'T WATCH
+================================= */
+
+function dontWatch() {
+
+    document.querySelector(".start-buttons").style.display = "none";
+
+    document.getElementById("noMessage").style.display = "block";
+
+}
+
+
+/* =================================
+   GIFT SELECTION
+================================= */
+
+const cards =
+    document.querySelectorAll(".card");
+
+const count =
+    document.getElementById("count");
+
+const finalMessage =
+    document.getElementById("finalMessage");
+
+let selected = 0;
+
+
+cards.forEach(card => {
+
+    card.addEventListener("click", function() {
+
+
+        /* Already selected */
+        if (
+            card.classList.contains("selected")
+        ) {
+            return;
+        }
+
+
+        /* Locked */
+        if (
+            card.classList.contains("locked")
+        ) {
+            return;
+        }
+
+
+        /* Maximum 3 */
+        if (selected >= 3) {
+            return;
+        }
+
+
+        /* Add selection */
+
+        selected++;
+
+        card.classList.add("selected");
+
+
+        /* Open box */
+
+        const gift =
+            card.querySelector(".gift");
+
+        gift.classList.add("open");
+
+
+        /* Update counter */
+
+        count.textContent = selected;
+
+
+        /* After selecting 3 */
+
+        if (selected === 3) {
+
+
+            cards.forEach(otherCard => {
+
+                if (
+                    !otherCard.classList.contains("selected")
+                ) {
+
+                    otherCard.classList.add("locked");
+
+                }
+
+            });
+
+
+            setTimeout(() => {
+
+                finalMessage.style.display = "block";
+
+            }, 900);
+
+        }
+
+    });
+
+});
+
+</script>
+
+
+</body>
+</html>
